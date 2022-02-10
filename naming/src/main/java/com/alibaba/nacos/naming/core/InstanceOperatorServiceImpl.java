@@ -211,7 +211,9 @@ public class InstanceOperatorServiceImpl implements InstanceOperator {
             result.setChecksum(service.getChecksum());
             return result;
         }
-        
+
+        //group enabled instances into ipMap, by whether an instance is healthy.
+        //and get the total count of enabled instances
         long total = 0;
         Map<Boolean, List<com.alibaba.nacos.naming.core.Instance>> ipMap = new HashMap<>(2);
         ipMap.put(Boolean.TRUE, new ArrayList<>());
@@ -225,7 +227,10 @@ public class InstanceOperatorServiceImpl implements InstanceOperator {
             ipMap.get(ip.isHealthy()).add(ip);
             total += 1;
         }
-        
+
+        //if the count of healthy instances is not beyond the threshold,
+        // get all enabled instances and set unhealthy ones of them healthy.
+        // or, get all healthy instances. if it is not healthOnly, add all unhealthy ones.
         double threshold = service.getProtectThreshold();
         List<Instance> hosts;
         if ((float) ipMap.get(Boolean.TRUE).size() / total <= threshold) {
