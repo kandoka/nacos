@@ -158,7 +158,17 @@ public class InstanceOperatorServiceImpl implements InstanceOperator {
         instance.validate();
         serviceManager.updateInstance(namespaceId, serviceName, instance);
     }
-    
+
+    /**
+     * get a list of instances of a service
+     * @param namespaceId namespace
+     * @param serviceName grouped service name group@@service
+     * @param subscriber  subscriber info
+     * @param cluster     cluster of instances
+     * @param healthOnly  whether only return health instances
+     * @return
+     * @throws Exception
+     */
     @Override
     public ServiceInfo listInstance(String namespaceId, String serviceName, Subscriber subscriber, String cluster,
             boolean healthOnly) throws Exception {
