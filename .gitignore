@@ -18,14 +18,14 @@ derby.log
 yarn.lock
 .flattened-pom.xml
 
-/cluster/nacos-15001/data/
-/cluster/nacos-15001/status/
-/cluster/nacos-15001/logs/
+/cluster/nacos-15001/data/**
+/cluster/nacos-15001/status/**
+/cluster/nacos-15001/logs/**
 
-/cluster/nacos-15002/data/
-/cluster/nacos-15002/status/
-/cluster/nacos-15002/logs/
+/cluster/nacos-15002/data/**
+/cluster/nacos-15002/status/**
+/cluster/nacos-15002/logs/**
 
-/cluster/nacos-15003/data/
-/cluster/nacos-15003/status/
-/cluster/nacos-15003/logs/
+/cluster/nacos-15003/data/**
+/cluster/nacos-15003/status/**
+/cluster/nacos-15003/logs/**
